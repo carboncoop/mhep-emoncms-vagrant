@@ -19,7 +19,7 @@ install_mysql() {
   debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD"
   DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
 
-  apt install -y \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
     mysql-client \
     libapache2-mod-php
 }
@@ -28,7 +28,7 @@ install_php_7_2() {
   # https://github.com/emoncms/emoncms/blob/master/docs/LinuxInstall.md
   # note: no need to configure PECL or Redis
 
-  sudo apt-get install -y \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
     php \
     php-mysql \
@@ -42,7 +42,7 @@ install_php_7_2() {
 }
 
 install_additional_packages() {
-    sudo apt-get install -y \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	ack-grep \
         dos2unix \
 	git \
