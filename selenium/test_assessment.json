@@ -14,6 +14,7 @@
             "3a_heatinghours_weekend_on1_mins": 0,
             "3a_heatinghours_weekend_off1_hours": 23,
             "3a_heatinghours_weekend_off1_mins": 0,
+            "3a_heatingoffsummer": "Yes",
             "commentary": "Test commentary.",
             "assessors_name": "Assessor",
             "assessors_biography": "",
