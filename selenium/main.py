@@ -90,6 +90,7 @@ class MHEPPopulateBot(MHEPBaseBot):
         self.login()
         self.create_assessment('populate and compare')
 
+        self.populate_basic_dwelling_data()
         self.populate_household_questionnaire()
         self.populate_commentary()
         self.populate_current_energy()
@@ -98,7 +99,6 @@ class MHEPPopulateBot(MHEPBaseBot):
             self.select_scenario(scenario)
 
             self.populate_ventilation_and_infiltration()
-            self.populate_basic_dwelling_data()
             self.populate_fabric()
             self.populate_lighting_appliances_cooking()
             self.populate_heating()
@@ -254,8 +254,6 @@ class MHEPPopulateBot(MHEPBaseBot):
         self.populate_text_fields()
         self.populate_selects()
 
-        self.add_fabric_elements()
-
     def add_fabric_elements(self):
 
         def add_element(i, element):
@@ -349,7 +347,11 @@ class MHEPPopulateBot(MHEPBaseBot):
             self.populate_new_row_selects_and_fields(key)
 
     def populate_basic_dwelling_data(self):
-        self.click_in_side_menu('Basic Dwelling Data', 'Context')
+        # TODO: There's a bug which means you can't click the add
+        # floors button, since the side menu link doesn't launch
+        # context.js, and attach the event.
+
+        # click_in_side_menu(d, 'Basic Dwelling Data', 'Context')
 
         self.check_boxes()
         self.populate_selects()
