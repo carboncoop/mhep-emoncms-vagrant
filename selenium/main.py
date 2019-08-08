@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import io
 import json
 
 from collections import OrderedDict
@@ -61,6 +62,22 @@ def main():
     with open('test_assessment.json') as json_file:
         test_assessment = json.load(json_file)
 
+    expected_filename = 'test_data/expected_report_summary.json'
+    with io.open(expected_filename) as g:
+        expected_report_summary = json.load(g)
+
+    got_filename = 'test_data/got_report_summary.json'
+
+    import os.path
+
+    if os.path.isfile(got_filename):
+        print('Found {}, not running scraper\n'.format(got_filename))
+        with io.open(got_filename, 'r') as f:
+            got_report_summary = json.load(f)
+
+            diff_reports(expected_report_summary, got_report_summary)
+            return
+
     bot = MHEPPopulateBot(webdriver.Firefox(), test_assessment)
     bot.run()
 
@@ -69,10 +86,21 @@ def main():
         json.dump(got_assessment, f, indent=4)
 
     got_report_summary = bot.parse_report_summary_table()
-    with open('test_data/got_report_summary.json', 'w') as f:
+    with open(got_filename, 'w') as f:
         json.dump(got_report_summary, f, indent=4)
 
-    # export_and_diff_assessment()
+    diff_reports(expected_report_summary, got_report_summary)
+
+
+def diff_reports(expected, got):
+    for key, value in expected.items():
+        try:
+            got_value = got[key]
+        except KeyError:
+            continue
+        else:
+            if got_value != value:
+                print('{}: expected: {} got: {}'.format(key, value, got[key]))
 
 
 class MHEPPopulateBot(MHEPBaseBot):
