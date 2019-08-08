@@ -1,3 +1,6 @@
 /.vagrant
 /ubuntu-bionic-18.04-cloudimg-console.log
 /emoncms/*
+/selenium/.vscode/settings.json
+*/__pycache__/*
+/selenium/geckodriver.log
