@@ -14,6 +14,7 @@
             "3a_heatinghours_weekend_on1_mins": 0,
             "3a_heatinghours_weekend_off1_hours": 23,
             "3a_heatinghours_weekend_off1_mins": 0,
+            "3a_heatingoffsummer": "Yes",
             "commentary": "Test commentary.",
             "assessors_name": "Assessor",
             "assessors_biography": "",
@@ -317,6 +318,29 @@
                     "wk": 2.4046000000000016
                 },
                 {
+                    "type": "Wall",
+                    "name": "Filled Cavity Masonry Wall - 50mm Cavity",
+                    "lib": "CWF_02",
+                    "l": 3.22,
+                    "h": 2.32,
+                    "area": 7.4704,
+                    "uvalue": 0.5,
+                    "kvalue": 110,
+                    "wk": 2.1601999999999997,
+                    "id": 6,
+                    "tags": [
+                        "Wall"
+                    ],
+                    "location": "Porch Wall",
+                    "source": "SAP table S6, p.131/ SAP table 1e, p.195",
+                    "g": 0,
+                    "gL": 0,
+                    "ff": 0,
+                    "description": "Cavity fill insulation injected through outer face of brickwork. This is used on its own or behind External Wall Insulation to prevent thermal bypass chimney effect within cavity. ",
+                    "netarea": 4.320399999999999,
+                    "windowarea": 3.1500000000000004
+                },
+                {
                     "type": "Floor",
                     "name": "Uninsulated suspended timber ground floor",
                     "lib": "FLUT_01",
@@ -398,6 +422,29 @@
                     "netarea": 103,
                     "windowarea": 0,
                     "wk": 30.9
+                },
+                {
+                    "type": "Roof",
+                    "name": "Uninsulated flat roof existing condition",
+                    "lib": "FRU_01",
+                    "l": 0,
+                    "h": 0,
+                    "area": 13,
+                    "uvalue": 2.3,
+                    "kvalue": 9,
+                    "wk": 29.9,
+                    "id": 10,
+                    "tags": [
+                        "Roof"
+                    ],
+                    "description": "",
+                    "location": "Conservatory",
+                    "source": "SAP: table S9, p.135/table 1e, p.195",
+                    "g": 0,
+                    "gL": 0,
+                    "ff": 0,
+                    "netarea": 13,
+                    "windowarea": 0
                 },
                 {
                     "type": "Window",
@@ -763,7 +810,7 @@
                     "type": "Door",
                     "name": "Any existing door onto unheated corridor/stairwell. ",
                     "lib": "DR02",
-                    "subtractfrom": 25,
+                    "subtractfrom": 6,
                     "l": 1.5,
                     "h": 2.1,
                     "area": 3.1500000000000004,
@@ -818,52 +865,6 @@
                     "netarea": 2.912,
                     "wk": 7.5712,
                     "gain": 87.44980280743236
-                },
-                {
-                    "type": "Wall",
-                    "name": "Filled Cavity Masonry Wall - 50mm Cavity",
-                    "lib": "CWF_02",
-                    "l": 3.22,
-                    "h": 2.32,
-                    "area": 7.4704,
-                    "uvalue": 0.5,
-                    "kvalue": 110,
-                    "wk": 2.1601999999999997,
-                    "id": 25,
-                    "tags": [
-                        "Wall"
-                    ],
-                    "location": "Porch Wall",
-                    "source": "SAP table S6, p.131/ SAP table 1e, p.195",
-                    "g": 0,
-                    "gL": 0,
-                    "ff": 0,
-                    "description": "Cavity fill insulation injected through outer face of brickwork. This is used on its own or behind External Wall Insulation to prevent thermal bypass chimney effect within cavity. ",
-                    "netarea": 4.320399999999999,
-                    "windowarea": 3.1500000000000004
-                },
-                {
-                    "type": "Roof",
-                    "name": "Uninsulated flat roof existing condition",
-                    "lib": "FRU_01",
-                    "l": 0,
-                    "h": 0,
-                    "area": 13,
-                    "uvalue": 2.3,
-                    "kvalue": 9,
-                    "wk": 29.9,
-                    "id": 26,
-                    "tags": [
-                        "Roof"
-                    ],
-                    "description": "",
-                    "location": "Conservatory",
-                    "source": "SAP: table S9, p.135/table 1e, p.195",
-                    "g": 0,
-                    "gL": 0,
-                    "ff": 0,
-                    "netarea": 13,
-                    "windowarea": 0
                 }
             ],
             "measures": {},
@@ -1217,6 +1218,8 @@
             "energyuseperperson": 0
         },
         "water_heating": {
+            "low_water_use_design": false,
+            "override_annual_energy_content": false,
             "solar_water_heating": false,
             "pipework_insulation": "Fully insulated primary pipework",
             "contains_dedicated_solar_storage_or_WWHRS": 0,
@@ -2936,6 +2939,29 @@
                     "wk": 2.4046000000000016
                 },
                 {
+                    "type": "Wall",
+                    "name": "Filled Cavity Masonry Wall - 50mm Cavity",
+                    "lib": "CWF_02",
+                    "l": 3.22,
+                    "h": 2.32,
+                    "area": 7.4704,
+                    "uvalue": 0.5,
+                    "kvalue": 110,
+                    "wk": 2.1601999999999997,
+                    "id": 6,
+                    "tags": [
+                        "Wall"
+                    ],
+                    "location": "Porch Wall",
+                    "source": "SAP table S6, p.131/ SAP table 1e, p.195",
+                    "g": 0,
+                    "gL": 0,
+                    "ff": 0,
+                    "description": "Cavity fill insulation injected through outer face of brickwork. This is used on its own or behind External Wall Insulation to prevent thermal bypass chimney effect within cavity. ",
+                    "netarea": 4.320399999999999,
+                    "windowarea": 3.1500000000000004
+                },
+                {
                     "type": "Floor",
                     "name": "Uninsulated suspended timber ground floor",
                     "lib": "FLUT_01",
@@ -3017,6 +3043,29 @@
                     "netarea": 103,
                     "windowarea": 0,
                     "wk": 11.33
+                },
+                {
+                    "type": "Roof",
+                    "name": "Uninsulated flat roof existing condition",
+                    "lib": "FRU_01",
+                    "l": 0,
+                    "h": 0,
+                    "area": 13,
+                    "uvalue": 2.3,
+                    "kvalue": 9,
+                    "wk": 29.9,
+                    "id": 27,
+                    "tags": [
+                        "Roof"
+                    ],
+                    "description": "",
+                    "location": "Conservatory",
+                    "source": "SAP: table S9, p.135/table 1e, p.195",
+                    "g": 0,
+                    "gL": 0,
+                    "ff": 0,
+                    "netarea": 13,
+                    "windowarea": 0
                 },
                 {
                     "type": "Window",
@@ -3382,7 +3431,7 @@
                     "type": "Door",
                     "name": "Any existing door onto unheated corridor/stairwell. ",
                     "lib": "DR02",
-                    "subtractfrom": 26,
+                    "subtractfrom": 6,
                     "l": 1.5,
                     "h": 2.1,
                     "area": 3.1500000000000004,
@@ -3437,52 +3486,6 @@
                     "netarea": 2.912,
                     "wk": 7.5712,
                     "gain": 87.44980280743236
-                },
-                {
-                    "type": "Wall",
-                    "name": "Filled Cavity Masonry Wall - 50mm Cavity",
-                    "lib": "CWF_02",
-                    "l": 3.22,
-                    "h": 2.32,
-                    "area": 7.4704,
-                    "uvalue": 0.5,
-                    "kvalue": 110,
-                    "wk": 2.1601999999999997,
-                    "id": 26,
-                    "tags": [
-                        "Wall"
-                    ],
-                    "location": "Porch Wall",
-                    "source": "SAP table S6, p.131/ SAP table 1e, p.195",
-                    "g": 0,
-                    "gL": 0,
-                    "ff": 0,
-                    "description": "Cavity fill insulation injected through outer face of brickwork. This is used on its own or behind External Wall Insulation to prevent thermal bypass chimney effect within cavity. ",
-                    "netarea": 4.320399999999999,
-                    "windowarea": 3.1500000000000004
-                },
-                {
-                    "type": "Roof",
-                    "name": "Uninsulated flat roof existing condition",
-                    "lib": "FRU_01",
-                    "l": 0,
-                    "h": 0,
-                    "area": 13,
-                    "uvalue": 2.3,
-                    "kvalue": 9,
-                    "wk": 29.9,
-                    "id": 27,
-                    "tags": [
-                        "Roof"
-                    ],
-                    "description": "",
-                    "location": "Conservatory",
-                    "source": "SAP: table S9, p.135/table 1e, p.195",
-                    "g": 0,
-                    "gL": 0,
-                    "ff": 0,
-                    "netarea": 13,
-                    "windowarea": 0
                 }
             ],
             "measures": {
@@ -4278,6 +4281,8 @@
             "energyuseperperson": 0
         },
         "water_heating": {
+            "low_water_use_design": false,
+            "override_annual_energy_content": false,
             "solar_water_heating": false,
             "pipework_insulation": "Fully insulated primary pipework",
             "contains_dedicated_solar_storage_or_WWHRS": 0,
