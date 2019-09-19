@@ -87,6 +87,7 @@ create_emoncms_database() {
 install_database_dump() {
   if [ ! -f "/root/installed_database_dump" ]; then
     run_as_vagrant "mysql < /vagrant/vagrant/example_data.sql"
+    touch /root/installed_database_dump
   fi
 }
 
